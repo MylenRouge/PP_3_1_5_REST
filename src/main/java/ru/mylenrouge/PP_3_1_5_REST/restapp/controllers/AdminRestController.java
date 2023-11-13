@@ -30,13 +30,13 @@ public class AdminRestController {
         return user != null ? new ResponseEntity<>(user, HttpStatus.OK) : new ResponseEntity<>(HttpStatus.NOT_FOUND);
     }
 
-    @PostMapping("/newUser")
+    @PostMapping("/users")
     public User newUser(@RequestBody User user) {
         userService.saveUser(user);
         return user;
     }
 
-    @PutMapping("/editUsers")
+    @PutMapping("/users")
     public User editUser(@RequestBody User user) {
         userService.updateUser(user);
         return user;
