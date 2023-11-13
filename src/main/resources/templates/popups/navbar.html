@@ -1,0 +1,14 @@
+<div th:fragment="navbar">
+  <nav class="navbar navbar-dark bg-dark p-2">
+    <div class="container-fluid">
+      <div color="white" class="text-light">
+        <strong th:text="${myUser.getUsername()}"/> with roles:
+        <th:block th:each="userRole: ${myUser.getRoleSet()}">
+          <span th:text="${userRole.name}"/>
+        </th:block>
+      </div>
+      <a class="nav-link active text-secondary" aria-current="page" href="/logout">Logout</a>
+
+    </div>
+  </nav>
+</div>

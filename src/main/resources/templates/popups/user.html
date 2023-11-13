@@ -1,0 +1,42 @@
+<div th:fragment="user">
+  <div class="m-3">
+    <h1>User information-page</h1>
+    <div class="bg-white border">
+      <div class="container-fluid bg-light border-bottom">
+      </div>
+      <div>
+        <div class="container-fluid bg-light border-bottom">
+          <h5 class="p-2">About user</h5>
+        </div>
+        <div class="p-3">
+          <table class="table table-striped">
+            <thead class="border-top">
+            <tr>
+              <th scope="col">ID</th>
+              <th scope="col">Name</th>
+              <th scope="col">Surname</th>
+              <th scope="col">Age</th>
+              <th scope="col">Username</th>
+              <th scope="col">Role</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+              <td th:text="${myUser.getId()}"/>
+              <td th:text="${myUser.getName()}"/>
+              <td th:text="${myUser.getSurname()}"/>
+              <td th:text="${myUser.getAge()}"/>
+              <td th:text="${myUser.getUsername()}"/>
+              <td>
+                <th:block th:each="role: ${myUser.getRoleSet()}">
+                  <label th:text="${role.name}"/>
+                </th:block>
+              </td>
+            </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

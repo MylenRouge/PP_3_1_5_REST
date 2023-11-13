@@ -1,0 +1,19 @@
+<html xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<div th:fragment="sidebar">
+  <div class="pt-3">
+    <div th:fragment="leftMenu">
+      <ul class="nav flex-sm-column">
+        <li class="nav-item">
+          <a class="nav-link" sec:authorize="hasRole('ROLE_ADMIN')"
+             th:classappend="${#httpServletRequest.getRequestURI().equals('/admin') ? 'active bg-primary text-white' : ''}"
+             href="#" th:href="@{/admin}" aria-current="page">Admin</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link"
+             th:classappend="${#httpServletRequest.getRequestURI().equals('/user') ? 'active bg-primary text-white' : ''}"
+             href="#" th:href="@{/user}">User</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
