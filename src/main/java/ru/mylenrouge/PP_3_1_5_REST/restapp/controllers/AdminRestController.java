@@ -20,8 +20,9 @@ public class AdminRestController {
 
 
     @GetMapping("/admin")
-    public List<User> showAllUsers() {
-        return userService.findAll();
+    public ResponseEntity<List<User>> showAllUsers() {
+        List<User> users = userService.findAll();
+        return ResponseEntity.ok(users);
     }
 
     @GetMapping("/admin/{id}")
@@ -31,15 +32,15 @@ public class AdminRestController {
     }
 
     @PostMapping("/admin")
-    public User newUser(@RequestBody User user) {
+    public ResponseEntity<User> newUser(@RequestBody User user) {
         userService.saveUser(user);
-        return user;
+        return ResponseEntity.ok(user);
     }
 
     @PutMapping("/admin")
-    public User editUser(@RequestBody User user) {
+    public ResponseEntity<User> editUser(@RequestBody User user) {
         userService.updateUser(user);
-        return user;
+        return ResponseEntity.ok(user);
     }
 
     @DeleteMapping("/admin/{id}")
