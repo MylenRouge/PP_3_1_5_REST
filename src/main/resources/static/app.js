@@ -1,7 +1,7 @@
 getUsersTable();
 
 async function findAllUsers() {
-    let allUsers = await fetch('/api/users' );
+    let allUsers = await fetch('/api/admin' );
     return allUsers;
 }
 
