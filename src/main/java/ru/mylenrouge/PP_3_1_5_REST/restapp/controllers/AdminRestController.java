@@ -19,30 +19,30 @@ public class AdminRestController {
     }
 
 
-    @GetMapping("/users")
+    @GetMapping("/admin")
     public List<User> showAllUsers() {
         return userService.findAll();
     }
 
-    @GetMapping("/users/{id}")
+    @GetMapping("/admin/{id}")
     public ResponseEntity<User> showUser(@PathVariable Long id) {
         User user = userService.findById(id);
         return user != null ? new ResponseEntity<>(user, HttpStatus.OK) : new ResponseEntity<>(HttpStatus.NOT_FOUND);
     }
 
-    @PostMapping("/users")
+    @PostMapping("/admin")
     public User newUser(@RequestBody User user) {
         userService.saveUser(user);
         return user;
     }
 
-    @PutMapping("/users")
+    @PutMapping("/admin")
     public User editUser(@RequestBody User user) {
         userService.updateUser(user);
         return user;
     }
 
-    @DeleteMapping("/users/{id}")
+    @DeleteMapping("/admin/{id}")
     public String deleteUser(@PathVariable Long id) {
         userService.deleteUser(id);
         return "User with ID = " + id + "deleted";
