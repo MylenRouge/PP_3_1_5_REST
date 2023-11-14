@@ -19,7 +19,6 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
     private final PasswordEncoder passwordEncoder;
 
-    @Autowired
     public WebSecurityConfig(UserServiceImpl userDetailsService, SuccessUserHandler successUserHandler, PasswordEncoder passwordEncoder) {
         this.userDetailsService = userDetailsService;
         this.successUserHandler = successUserHandler;
