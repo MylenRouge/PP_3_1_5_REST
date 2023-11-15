@@ -43,9 +43,9 @@ public class AdminRestController {
         return ResponseEntity.ok(user);
     }
 
-    @DeleteMapping("/admin/{id}")
-    public String deleteUser(@PathVariable Long id) {
+    @DeleteMapping("/users/{id}")
+    public ResponseEntity<String> deleteUser(@PathVariable Long id) {
         userService.deleteUser(id);
-        return "User with ID = " + id + "deleted";
+        return ResponseEntity.ok("User with ID = " + id + "deleted");
     }
 }
